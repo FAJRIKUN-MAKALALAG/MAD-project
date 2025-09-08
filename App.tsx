@@ -17,17 +17,17 @@ const App: React.FC = () => {
     'https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?w=800';
 
   // 1) STATIC image
-  const localImage: ImageSourcePropType = require('./assets/local-cat.png');
+  const localImage: ImageSourcePropType = require('./assets/cat-.jpg');
 
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={styles.content}>
         {/* 1) STATIC / LOCAL */}
-        <Text style={styles.title}>1) Static Resource (Lokal Project)</Text>
+        <Text style={styles.title}> Static Resource (Lokal Project)</Text>
         <Image source={localImage} style={styles.image} resizeMode="cover" />
 
         {/* 2) NETWORK */}
-        <Text style={styles.title}>2) Network Image (Internet)</Text>
+        <Text style={styles.title}> Network Image (Internet)</Text>
         <Image
           source={{uri: networkUri}}
           style={styles.image}
@@ -35,7 +35,7 @@ const App: React.FC = () => {
         />
 
         {/* 3) BASE64 */}
-        <Text style={styles.title}>3) Base64 Image (Data URI)</Text>
+        <Text style={styles.title}> Base64 Image (Data URI)</Text>
         <Image
           source={{
             uri: myBase64Image.startsWith('data:')
