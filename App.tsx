@@ -15,6 +15,9 @@ const App: React.FC = () => {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollContent}>
+        {/* Page Title */}
+        <Text style={styles.pageTitle}>My Profile</Text>
+
         {/* Profile Card */}
         <View style={[styles.card, styles.profileCard]}>
           <View style={styles.photoWrapper}>
@@ -127,6 +130,13 @@ const styles = StyleSheet.create({
   },
   scrollContent: {
     padding: 16,
+  },
+  pageTitle: {
+    color: '#0F172A',
+    fontSize: 24,
+    fontWeight: '800',
+    marginBottom: 12,
+    paddingHorizontal: 4,
   },
 
   /* Header */
