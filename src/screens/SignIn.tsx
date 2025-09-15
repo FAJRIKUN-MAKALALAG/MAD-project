@@ -15,9 +15,9 @@ type Props = {
 };
 
 const SignIn: React.FC<Props> = ({onSuccess}) => {
-  const [email, setEmail] = useState('');
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [emailError, setEmailError] = useState<string | null>(null);
+  const [usernameError, setusernameError] = useState<string | null>(null);
   const [passwordError, setPasswordError] = useState<string | null>(null);
   const [generalError, setGeneralError] = useState<string | null>(null);
 
@@ -26,18 +26,8 @@ const SignIn: React.FC<Props> = ({onSuccess}) => {
     let valid = true;
 
     // reset
-    setEmailError(null);
+    setusernameError(null);
     setPasswordError(null);
-
-    // email validation (very simple)
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!email) {
-      setEmailError('Email wajib diisi');
-      valid = false;
-    } else if (!emailRegex.test(email)) {
-      setEmailError('Format email tidak valid');
-      valid = false;
-    }
 
     // password validation
     if (!password) {
@@ -48,7 +38,9 @@ const SignIn: React.FC<Props> = ({onSuccess}) => {
       valid = false;
     }
 
-    if (!valid) return;
+    if (!valid) {
+      return;
+    }
 
     // success: navigate to App via onSuccess
     onSuccess?.();
@@ -61,29 +53,29 @@ const SignIn: React.FC<Props> = ({onSuccess}) => {
         style={{flex: 1}}>
         <View style={styles.content}>
           <View style={styles.header}>
-            <Text style={styles.title}>Masuk</Text>
-            <Text style={styles.subtitle}>Silakan login untuk melanjutkan</Text>
+            <Text style={styles.title}>Welcome</Text>
           </View>
 
           <View style={styles.form}>
-            <Text style={styles.label}>Email</Text>
+            <Text style={styles.label}>Username</Text>
             <TextInput
-              value={email}
-              onChangeText={setEmail}
-              placeholder="nama@email.com"
-              keyboardType="email-address"
+              value={username}
+              onChangeText={setUsername}
+              placeholder="Masukkan Username Anda"
               autoCapitalize="none"
               autoCorrect={false}
-              style={[styles.input, emailError && styles.inputError]}
+              style={[styles.input, usernameError && styles.inputError]}
               placeholderTextColor="#9CA3AF"
             />
-            {emailError ? <Text style={styles.errorText}>{emailError}</Text> : null}
+            {usernameError ? (
+              <Text style={styles.errorText}>{usernameError}</Text>
+            ) : null}
 
             <Text style={[styles.label, {marginTop: 12}]}>Password</Text>
             <TextInput
               value={password}
               onChangeText={setPassword}
-              placeholder="••••••••"
+              placeholder="Masukan Password Anda"
               secureTextEntry
               style={[styles.input, passwordError && styles.inputError]}
               placeholderTextColor="#9CA3AF"
@@ -93,14 +85,15 @@ const SignIn: React.FC<Props> = ({onSuccess}) => {
             ) : null}
 
             <TouchableOpacity style={styles.button} onPress={handleSignIn}>
-              <Text style={styles.buttonText}>Masuk</Text>
+              <Text style={styles.buttonText}>Sign in</Text>
             </TouchableOpacity>
 
             <TouchableOpacity style={styles.secondaryButton}>
               <Text style={styles.secondaryText}>Lupa password?</Text>
             </TouchableOpacity>
             {generalError ? (
-              <Text style={[styles.errorText, {textAlign: 'center', marginTop: 8}]}> 
+              <Text
+                style={[styles.errorText, {textAlign: 'center', marginTop: 8}]}>
                 {generalError}
               </Text>
             ) : null}
@@ -166,7 +159,7 @@ const styles = StyleSheet.create({
   },
   button: {
     height: 48,
-    backgroundColor: '#111827',
+    backgroundColor: '#ffc400ff',
     borderRadius: 12,
     alignItems: 'center',
     justifyContent: 'center',
