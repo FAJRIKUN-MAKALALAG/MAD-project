@@ -1,4 +1,4 @@
-import {StyleSheet, View, Image, Text} from 'react-native';
+import {StyleSheet, View, Image} from 'react-native';
 import React from 'react';
 
 const Flexbox = () => {
@@ -16,10 +16,6 @@ const Flexbox = () => {
           style={styles.logo}
           resizeMode="contain"
         />
-        <View style={styles.textContainer}>
-          <Text style={styles.title}>Universitas Klabat</Text>
-          <Text style={styles.subtitle}>Pathway to Excellence</Text>
-        </View>
       </View>
 
       <View style={styles.bottomSection}>
@@ -72,18 +68,6 @@ const styles = StyleSheet.create({
     width: 200,
     height: 80,
     marginRight: 15,
-  },
-  textContainer: {
-    flexDirection: 'column',
-    alignItems: 'flex-start',
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-  subtitle: {
-    fontStyle: 'italic',
-    fontSize: 14,
   },
 
   bottomSection: {
