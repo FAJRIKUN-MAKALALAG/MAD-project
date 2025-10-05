@@ -1,0 +1,29 @@
+adb devices : untuk cek device yang tersambung
+
+adb tcpip 5555 : untuk membuat port untuk android yang tersambung
+
+adb connect IP_HP:5555
+
+npm run android : untuk run androidnya 
+
+adb kill-server
+adb start-server
+
+echo "=== CEK DEVICE VIA USB ==="
+adb devices
+
+echo "=== AKTIFKAN TCP/IP MODE ==="
+adb tcpip 5555
+
+echo "=== CEK IP HP (jalankan di HP jika belum tahu): Settings > Wi-Fi > IP address ==="
+echo "Ganti <IP_HP> di bawah dengan IP kamu (misal 192.168.1.7)"
+
+adb connect 192.168.1.7:5555
+
+echo "=== CEK DEVICE YANG TERHUBUNG ==="
+adb devices
+
+echo "=== JALANKAN PROJECT REACT NATIVE ==="
+npm run android
+
+echo "=== SELESAI ==="

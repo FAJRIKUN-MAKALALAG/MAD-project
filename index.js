@@ -1,9 +1,9 @@
-/**
+﻿/**
  * @format
  */
 
 import {AppRegistry} from 'react-native';
-import Tugas7 from './Tugas7';
+import MainApp from './MainApp';
 import {name as appName} from './app.json';
 
-AppRegistry.registerComponent(appName, () => Tugas7);
+AppRegistry.registerComponent(appName, () => MainApp);
